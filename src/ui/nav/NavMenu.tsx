@@ -39,7 +39,7 @@ export function NavMenu() {
 					<NavigationMenuTriggerWithFixedUX
 						onKeyboardOpen={() => setValue((value) => (value === "shop" ? undefined : "shop"))}
 					>
-						Shop
+						Categorias
 					</NavigationMenuTriggerWithFixedUX>
 					<NavigationMenuContent>
 						<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -49,21 +49,21 @@ export function NavMenu() {
 										className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
 										href="/"
 									>
-										<div className="mb-2 mt-4 text-lg font-medium">YNS</div>
+										<div className="mb-2 mt-4 text-lg font-medium">Categorias</div>
 										<p className="leading-tight text-muted-foreground">
-											Your Next Store is the fastest and most compeling Stripe-powered storefront
+											Elegi la categoria de productos que deseas
 										</p>
 									</YnsLink>
 								</NavigationMenuLink>
 							</li>
-							<ListItem href="/products" title="All products">
-								All products in our store are listed here.
+							<ListItem href="/products" title="Todo">
+								Todos los productos listados
 							</ListItem>
-							<ListItem href="/category/apparel" title="Apparel">
-								All apparel products in our store.
+							<ListItem href="/category/apparel" title="Electrodomesticos">
+								Electrodomesticos para el hogar y para uso cotidiano
 							</ListItem>
-							<ListItem href="/category/accessories" title="Accessories">
-								All accessories products in our store.
+							<ListItem href="/category/accessories" title="Accessorios">
+								Accesorios de todo tipo
 							</ListItem>
 						</ul>
 					</NavigationMenuContent>
@@ -72,7 +72,7 @@ export function NavMenu() {
 					<NavigationMenuTriggerWithFixedUX
 						onKeyboardOpen={() => setValue((value) => (value === "about" ? undefined : "about"))}
 					>
-						About
+						Acerca de
 					</NavigationMenuTriggerWithFixedUX>
 					<NavigationMenuContent>
 						<ul className="grid gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[600px]">
@@ -85,11 +85,7 @@ export function NavMenu() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem value="documentation">
-					<NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-						<YnsLink href="https://yournextstore.com/docs" target="_blank">
-							Documentation
-						</YnsLink>
-					</NavigationMenuLink>
+					<NavigationMenuLink asChild className={navigationMenuTriggerStyle()}></NavigationMenuLink>
 				</NavigationMenuItem>
 			</NavigationMenuList>
 		</NavigationMenu>

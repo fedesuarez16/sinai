@@ -5,8 +5,8 @@ import * as Commerce from "commerce-kit";
 import ImageOne from "./pngwing.com (3).png";
 import { ProductList } from "@/ui/products/productList";
 import { CategoryBox } from "@/ui/CategoryBox";
-import AccessoriesImage from "@/images/accessories.jpg";
-import ApparelImage from "@/images/apparel.jpg";
+import AccessoriesImage from "@/images/accessories.png";
+import ApparelImage from "@/images/electrodomesticos.png";
 import { YnsLink } from "@/ui/YnsLink";
 import { publicUrl } from "@/env.mjs";
 
@@ -26,7 +26,7 @@ export default async function Home() {
 					<div className="max-w-md space-y-4">
 						<h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
 							Descubri la coleccion de productos de{" "}
-							<p className="text-orange-500">tiendacompleta</p>
+							<p className="text-orange-500">nuestra tienda</p>
 						</h2>
 						<p className="text-pretty text-neutral-600">{t("hero.description")}</p>
 						<YnsLink
@@ -56,8 +56,8 @@ export default async function Home() {
 			<section className="w-full py-8">
 				<div className="grid gap-8 lg:grid-cols-2">
 					{[
-						{ categorySlug: "accessories", src: AccessoriesImage },
-						{ categorySlug: "apparel", src: ApparelImage },
+						{ categorySlug: "accesorios", src: AccessoriesImage },
+						{ categorySlug: "electrodomesticos", src: ApparelImage },
 					].map(({ categorySlug, src }) => (
 						<CategoryBox key={categorySlug} categorySlug={categorySlug} src={src} />
 					))}
