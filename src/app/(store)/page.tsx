@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next/types";
 import { getTranslations } from "next-intl/server";
 import * as Commerce from "commerce-kit";
+import ImageOne from "./pngwing.com (3).png";
 import { ProductList } from "@/ui/products/productList";
 import { CategoryBox } from "@/ui/CategoryBox";
 import AccessoriesImage from "@/images/accessories.jpg";
@@ -24,7 +25,8 @@ export default async function Home() {
 				<div className="mx-auto grid grid-cols-1 items-center justify-items-center gap-8 px-8 sm:px-16 md:grid-cols-2">
 					<div className="max-w-md space-y-4">
 						<h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
-							{t("hero.title")}
+							Descubri la coleccion de productos de{" "}
+							<p className="text-orange-500">tiendacompleta</p>
 						</h2>
 						<p className="text-pretty text-neutral-600">{t("hero.description")}</p>
 						<YnsLink
@@ -41,7 +43,7 @@ export default async function Home() {
 						className="rounded"
 						height={450}
 						width={450}
-						src="https://files.stripe.com/links/MDB8YWNjdF8xT3BaeG5GSmNWbVh6bURsfGZsX3Rlc3RfaDVvWXowdU9ZbWlobUIyaHpNc1hCeDM200NBzvUjqP"
+						src={ImageOne}
 						style={{
 							objectFit: "cover",
 						}}
