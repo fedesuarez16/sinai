@@ -36,7 +36,7 @@ export const Newsletter = () => {
 		>
 			<Input
 				className="max-w-lg flex-1"
-				placeholder={t("emailPlaceholder")}
+				placeholder="Ingresa tu email"
 				type="email"
 				name="email"
 				required
