@@ -1,5 +1,4 @@
 import { type SVGAttributes } from "react";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Categories } from "@/ui/nav/Nav";
 import { deslugify } from "@/lib/utils";
