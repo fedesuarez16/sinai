@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useOptimistic, useState } from "react";
+import { useOptimistic } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type * as Commerce from "commerce-kit";
 import {
