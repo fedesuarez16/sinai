@@ -70,7 +70,7 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 	// Function to handle the WhatsApp button click
 	const handleWhatsAppClick = () => {
 		const message = encodeURIComponent(generateWhatsAppMessage());
-		const phoneNumber = "+5491133370937"; // Replace with your business's WhatsApp number
+		const phoneNumber = "+5491127355725"; // Replace with your business's WhatsApp number
 		const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 		window.open(whatsappUrl, "_blank");
 	};
