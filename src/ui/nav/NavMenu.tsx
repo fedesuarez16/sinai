@@ -68,25 +68,6 @@ export function NavMenu() {
 						</ul>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
-				<NavigationMenuItem value="about">
-					<NavigationMenuTriggerWithFixedUX
-						onKeyboardOpen={() => setValue((value) => (value === "about" ? undefined : "about"))}
-					>
-						Acerca de
-					</NavigationMenuTriggerWithFixedUX>
-					<NavigationMenuContent>
-						<ul className="grid gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] xl:w-[600px]">
-							{links.map((link) => (
-								<ListItem key={link.title} title={link.title} href={link.href} target="_blank">
-									{link.description}
-								</ListItem>
-							))}
-						</ul>
-					</NavigationMenuContent>
-				</NavigationMenuItem>
-				<NavigationMenuItem value="documentation">
-					<NavigationMenuLink asChild className={navigationMenuTriggerStyle()}></NavigationMenuLink>
-				</NavigationMenuItem>
 			</NavigationMenuList>
 		</NavigationMenu>
 	);

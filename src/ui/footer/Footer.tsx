@@ -54,25 +54,9 @@ export async function Footer() {
 							<li>
 								<YnsLink
 									className="underline-offset-4 hover:underline"
-									href="https://yournextstore.com/#features"
+									href="mailto:coflipweb@gmail.com"
 								>
-									Funcionalidades
-								</YnsLink>
-							</li>
-							<li>
-								<YnsLink
-									className="underline-offset-4 hover:underline"
-									href="https://yournextstore.com/#pricing"
-								>
-									Pricing
-								</YnsLink>
-							</li>
-							<li>
-								<YnsLink
-									className="underline-offset-4 hover:underline"
-									href="mailto:hello@yournextstore.com"
-								>
-									Contact Us
+									Contactanos
 								</YnsLink>
 							</li>
 						</ul>
@@ -81,8 +65,13 @@ export async function Footer() {
 			</div>
 			<div className="container mt-8 flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-neutral-500 md:flex-row">
 				<div>
-					<p>© 2024 tutienda.</p>
-					<p>Desarrollado por Flipwebco.</p>
+					<p>© 2024 tiendacompleta.</p>
+					<p>
+						Desarrollado por{" "}
+						<a href="https://www.flipwebco.com/" className="text-indigo-400">
+							Flipwebco.
+						</a>
+					</p>
 				</div>
 				<div className="flex items-center gap-4"></div>
 			</div>

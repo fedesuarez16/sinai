@@ -31,7 +31,7 @@
 		"nav": {
 			"search": {
 				"title": "Search",
-				"placeholder": "Search for products…"
+				"placeholder": "Buscar productos"
 			},
 			"cartSummary": {
 				"itemsInCart": "Items in cart",
@@ -41,7 +41,7 @@
 		},
 		"addToCart": {
 			"success": "Added {productName} to cart",
-			"actionButton": "Add to cart"
+			"actionButton": "Agregar al carrito"
 		},
 		"deliveryEstimates": {
 			"atLeast": "At least",

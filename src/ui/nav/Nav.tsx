@@ -5,8 +5,8 @@ import { NavMenu } from "@/ui/nav/NavMenu";
 import { YnsLink } from "@/ui/YnsLink";
 
 export const Categories = [
-	{ name: "Apparel", slug: "apparel" },
-	{ name: "Accessories", slug: "accessories" },
+	{ name: "electrodomesticos", slug: "electrodomesticos" },
+	{ name: "Accessorios", slug: "accessorios" },
 ];
 
 export const Nav = () => {
