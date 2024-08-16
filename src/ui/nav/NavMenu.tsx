@@ -13,22 +13,8 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-	navigationMenuTriggerStyle,
 } from "@/ui/shadcn/navigation-menu";
 import { YnsLink } from "@/ui/YnsLink";
-
-const links = [
-	{
-		title: "Features",
-		href: "https://yournextstore.com/#features",
-		description: "A list of all the features of Your Next Store.",
-	},
-	{
-		title: "Where to buy",
-		href: "https://yournextstore.com",
-		description: "Join our community and get the latest news about our products.",
-	},
-];
 
 export function NavMenu() {
 	const [value, setValue] = useState<string | undefined>(undefined);
