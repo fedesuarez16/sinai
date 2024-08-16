@@ -177,17 +177,16 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 							<CartAmountWithSpinner total={total} currency={currency} />
 						</TableCell>
 					</TableRow>
-					<TableRow>
-						<TableCell colSpan={5} className="text-right">
-							<button
-								type="button"
-								onClick={handleWhatsAppClick}
-								className="mt-4 rounded-full bg-gray-900 px-24 py-3 text-[1.1rem] text-white hover:bg-gray-800"
-							>
-								Comprar
-							</button>
-						</TableCell>
-					</TableRow>
+					<TableRow></TableRow>
+					<TableCell colSpan={5} className="text-right">
+						<button
+							type="button"
+							onClick={handleWhatsAppClick}
+							className="mt-4 rounded-full bg-gray-900 px-24 py-3 text-[1.1rem] text-white hover:bg-gray-800"
+						>
+							Comprar
+						</button>
+					</TableCell>
 				</TableFooter>
 			</Table>
 		</form>

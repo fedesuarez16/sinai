@@ -1,4 +1,3 @@
-import { getTranslations } from "next-intl/server";
 import * as Commerce from "commerce-kit";
 import amex from "@/images/payments/amex.svg";
 import blik from "@/images/payments/blik.svg";
@@ -23,12 +22,9 @@ export const paymentMethods = {
 
 export const CheckoutCard = async ({ cart }: { cart: Commerce.Cart["cart"] }) => {
 	const shippingRates = await Commerce.shippingBrowse();
-	const t = await getTranslations("/cart.page");
 
 	return (
 		<section className="max-w-md pb-12">
-			<h2 className="text-3xl font-bold leading-none tracking-tight">{t("checkoutTitle")}</h2>
-			<p className="mb-4 mt-2 text-sm text-muted-foreground">{t("checkoutDescription")}</p>
 			<StripePayment
 				shippingRateId={cart.metadata.shippingRateId}
 				shippingRates={structuredClone(shippingRates.data)}
