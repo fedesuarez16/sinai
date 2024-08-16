@@ -26,7 +26,7 @@ export default async function Home() {
 					<div className="max-w-md space-y-4">
 						<h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
 							Descubri la coleccion de productos de{" "}
-							<p className="text-orange-500">nuestra tienda</p>
+							<p className="text-orange-500">Tiendacompleta</p>
 						</h2>
 						<p className="text-pretty text-neutral-600">{t("hero.description")}</p>
 						<YnsLink

@@ -160,25 +160,24 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 					{optimisticCart.cart.taxBreakdown.map((tax, idx) => (
 						<TableRow key={idx + tax.taxAmount} className="font-normal">
 							<TableCell className="hidden w-24 sm:table-cell"></TableCell>
-							<TableCell colSpan={3} className="text-right">
+							<TableCell colSpan={3} className="text-left">
 								{tax.taxType.toLocaleUpperCase()} {tax.taxPercentage}%
 							</TableCell>
-							<TableCell className="text-right">
+							<TableCell className="text-left">
 								<CartAmountWithSpinner total={tax.taxAmount} currency={currency} />
 							</TableCell>
 						</TableRow>
 					))}
-					<TableRow className="text-lg font-bold">
-						<TableCell className="hidden w-24 sm:table-cell"></TableCell>
-						<TableCell colSpan={3} className="text-right">
-							{t("totalSummary")}
-						</TableCell>
-						<TableCell className="text-right">
-							<CartAmountWithSpinner total={total} currency={currency} />
+					<TableCell></TableCell>
+					<TableCell></TableCell>
+
+					<TableRow className="text-left text-lg font-bold">
+						<TableCell colSpan={3} className="w-24 text-left">
+							{t("totalSummary")}:
+							<CartAmountWithSpinner total={total} currency={currency} /> ARS
 						</TableCell>
 					</TableRow>
-					<TableRow></TableRow>
-					<TableCell colSpan={5} className="text-right">
+					<TableCell colSpan={5} className="text-left">
 						<button
 							type="button"
 							onClick={handleWhatsAppClick}
