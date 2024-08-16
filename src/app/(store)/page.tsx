@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next/types";
-import { getTranslations } from "next-intl/server";
 import * as Commerce from "commerce-kit";
 import ImageOne from "./pngwing.com (3).png";
 import { ProductList } from "@/ui/products/productList";
@@ -15,8 +14,6 @@ export const metadata = {
 } satisfies Metadata;
 
 export default async function Home() {
-	const t = await getTranslations("/");
-
 	const products = await Commerce.productBrowse({ first: 6 });
 
 	return (
