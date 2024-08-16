@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useOptimistic } from "react";
+import { useOptimistic, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type * as Commerce from "commerce-kit";
 import {
@@ -46,6 +46,35 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 	const currency = optimisticCart.lines[0]!.product.default_price.currency;
 	const total = calculateCartTotalPossiblyWithTax(optimisticCart);
 
+	// Function to generate the WhatsApp message
+	const generateWhatsAppMessage = () => {
+		const messageLines = optimisticCart.lines.map((line) => {
+			const productName = formatProductName(line.product.name, line.product.metadata.variant);
+			const price = formatMoney({
+				amount: line.product.default_price.unit_amount ?? 0,
+				currency: line.product.default_price.currency,
+				locale,
+			});
+			return `*${productName}*\nPrecio: ${price}\nCantidad: ${line.quantity}\n`;
+		});
+
+		const totalAmount = formatMoney({
+			amount: total,
+			currency: currency,
+			locale,
+		});
+
+		return `Hola, me gustaría comprar los siguientes productos:\n\n${messageLines.join("\n")}\nTotal: ${totalAmount}`;
+	};
+
+	// Function to handle the WhatsApp button click
+	const handleWhatsAppClick = () => {
+		const message = encodeURIComponent(generateWhatsAppMessage());
+		const phoneNumber = "+5491133370937"; // Replace with your business's WhatsApp number
+		const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+		window.open(whatsappUrl, "_blank");
+	};
+
 	return (
 		<form>
 			<Table>
@@ -61,59 +90,52 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 					</TableRow>
 				</TableHeader>
 				<TableBody>
-					{optimisticCart.lines.map((line) => {
-						// @todo figure out what to do with this object; how to diplay it nicely
-						// do some research
-						// const _taxLine = optimisticCart.taxCalculation?.line_items?.data.find(
-						// 	(taxLine) => taxLine.product === line.product.id,
-						// );
-						return (
-							<TableRow key={line.product.id}>
-								<TableCell className="hidden sm:table-cell sm:w-24">
-									{line.product.images[0] && (
-										<Image
-											className="aspect-square rounded-md object-cover"
-											src={line.product.images[0]}
-											width={96}
-											height={96}
-											alt=""
-										/>
-									)}
-								</TableCell>
-								<TableCell className="font-medium">
-									<YnsLink
-										className="transition-colors hover:text-muted-foreground"
-										href={`/product/${line.product.metadata.slug}`}
-									>
-										{formatProductName(line.product.name, line.product.metadata.variant)}
-									</YnsLink>
-								</TableCell>
-								<TableCell>
-									{formatMoney({
-										amount: line.product.default_price.unit_amount ?? 0,
-										currency: line.product.default_price.currency,
-										locale,
-									})}
-								</TableCell>
-								<TableCell>
-									<CartItemQuantity
-										cartId={cart.cart.id}
-										quantity={line.quantity}
-										productId={line.product.id}
-										onChange={dispatchOptimisticCartAction}
+					{optimisticCart.lines.map((line) => (
+						<TableRow key={line.product.id}>
+							<TableCell className="hidden sm:table-cell sm:w-24">
+								{line.product.images[0] && (
+									<Image
+										className="aspect-square rounded-md object-cover"
+										src={line.product.images[0]}
+										width={96}
+										height={96}
+										alt=""
 									/>
-								</TableCell>
-								<TableCell className="text-right">
-									<CartItemLineTotal
-										currency={line.product.default_price.currency}
-										quantity={line.quantity}
-										unitAmount={line.product.default_price.unit_amount ?? 0}
-										productId={line.product.id}
-									/>
-								</TableCell>
-							</TableRow>
-						);
-					})}
+								)}
+							</TableCell>
+							<TableCell className="font-medium">
+								<YnsLink
+									className="transition-colors hover:text-muted-foreground"
+									href={`/product/${line.product.metadata.slug}`}
+								>
+									{formatProductName(line.product.name, line.product.metadata.variant)}
+								</YnsLink>
+							</TableCell>
+							<TableCell>
+								{formatMoney({
+									amount: line.product.default_price.unit_amount ?? 0,
+									currency: line.product.default_price.currency,
+									locale,
+								})}
+							</TableCell>
+							<TableCell>
+								<CartItemQuantity
+									cartId={cart.cart.id}
+									quantity={line.quantity}
+									productId={line.product.id}
+									onChange={dispatchOptimisticCartAction}
+								/>
+							</TableCell>
+							<TableCell className="text-right">
+								<CartItemLineTotal
+									currency={line.product.default_price.currency}
+									quantity={line.quantity}
+									unitAmount={line.product.default_price.unit_amount ?? 0}
+									productId={line.product.id}
+								/>
+							</TableCell>
+						</TableRow>
+					))}
 					{cart.shippingRate && (
 						<TableRow>
 							<TableCell className="hidden sm:table-cell sm:w-24"></TableCell>
@@ -153,6 +175,17 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 						</TableCell>
 						<TableCell className="text-right">
 							<CartAmountWithSpinner total={total} currency={currency} />
+						</TableCell>
+					</TableRow>
+					<TableRow>
+						<TableCell colSpan={5} className="text-right">
+							<button
+								type="button"
+								onClick={handleWhatsAppClick}
+								className="mt-4 rounded-full bg-gray-900 px-24 py-3 text-[1.1rem] text-white hover:bg-gray-800"
+							>
+								Comprar
+							</button>
 						</TableCell>
 					</TableRow>
 				</TableFooter>

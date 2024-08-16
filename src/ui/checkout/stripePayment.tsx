@@ -212,7 +212,7 @@ const PaymentForm = ({
 
 	return (
 		<form onSubmit={handleSubmit} className="grid gap-4">
-			<LinkAuthenticationElement onReady={() => setIsLinkAuthenticationReady(true)} />
+			{/* <LinkAuthenticationElement onReady={() => setIsLinkAuthenticationReady(true)} />
 			<AddressElement
 				options={{
 					mode: "shipping",
@@ -329,7 +329,7 @@ const PaymentForm = ({
 						t("payNowButton")
 					)}
 				</Button>
-			)}
+			)} */}
 		</form>
 	);
 };
