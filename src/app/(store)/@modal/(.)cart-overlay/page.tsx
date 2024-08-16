@@ -27,9 +27,9 @@ export default async function CartModalPage({ searchParams }: { searchParams: { 
 		<CartAsideContainer withAnimations={true}>
 			<div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
 				<div className="flex items-center justify-between">
-					<h2 className="text-lg font-semibold text-neutral-700">{t("title")}</h2>
+					<h2 className="text-lg font-semibold text-neutral-700">Tu carrito</h2>
 					<YnsLink replace href="/cart" className="text-sm text-muted-foreground underline">
-						{t("openFullView")}
+						Ver en grande
 					</YnsLink>
 				</div>
 
@@ -87,9 +87,9 @@ export default async function CartModalPage({ searchParams }: { searchParams: { 
 						})}
 					</p>
 				</div>
-				<p className="mt-0.5 text-sm text-neutral-500">{t("shippingAndTaxesInfo")}</p>
+				<p className="mt-0.5 text-sm text-neutral-500">Continue para seguir con su compra</p>
 				<Button asChild={true} size={"lg"} className="mt-6 w-full rounded-full text-lg">
-					<YnsLink href="/cart">{t("goToPaymentButton")}</YnsLink>
+					<YnsLink href="/cart">Ir al pago</YnsLink>
 				</Button>
 			</div>
 			{searchParams.add && <CartModalAddSideEffect productId={searchParams.add} />}

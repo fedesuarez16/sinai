@@ -7,7 +7,6 @@ export async function CartEmpty() {
 		<div className="flex max-h-80 flex-1 flex-col items-center justify-center gap-4">
 			<div className="flex flex-col items-center justify-center space-y-2 text-center">
 				<ShoppingCartIcon className="h-12 w-12 text-neutral-500" />
-				<h2 className="text-2xl font-bold tracking-tight">{t("title")}</h2>
 				<p className="text-neutral-500">{t("description")}</p>
 			</div>
 			<YnsLink

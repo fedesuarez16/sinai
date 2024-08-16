@@ -83,9 +83,9 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 						<TableHead className="hidden w-24 sm:table-cell">
 							<span className="sr-only">{t("imageCol")}</span>
 						</TableHead>
-						<TableHead className="">{t("productCol")}</TableHead>
-						<TableHead className="w-1/6 min-w-32">{t("priceCol")}</TableHead>
-						<TableHead className="w-1/6 min-w-32">{t("quantityCol")}</TableHead>
+						<TableHead className="">Producto</TableHead>
+						<TableHead className="w-1/6 min-w-32">Precio</TableHead>
+						<TableHead className="w-1/6 min-w-32">Cantidad</TableHead>
 						<TableHead className="w-1/6 min-w-32 text-right">{t("totalCol")}</TableHead>
 					</TableRow>
 				</TableHeader>
@@ -169,9 +169,8 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 						</TableRow>
 					))}
 					<TableCell></TableCell>
-					<TableCell></TableCell>
 
-					<TableRow className="text-left text-lg font-bold">
+					<TableRow className="text-left text-lg font-semibold text-gray-800">
 						<TableCell colSpan={3} className="w-24 text-left">
 							{t("totalSummary")}:
 							<CartAmountWithSpinner total={total} currency={currency} /> ARS
@@ -181,7 +180,7 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 						<button
 							type="button"
 							onClick={handleWhatsAppClick}
-							className="mt-4 rounded-full bg-gray-900 px-24 py-3 text-[1.1rem] text-white hover:bg-gray-800"
+							className="mt-4 rounded-full bg-gray-900 px-12 py-3 text-[1.1rem] text-white hover:bg-gray-800"
 						>
 							Comprar
 						</button>

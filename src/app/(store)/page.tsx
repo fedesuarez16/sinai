@@ -28,12 +28,14 @@ export default async function Home() {
 							Descubri la coleccion de productos de{" "}
 							<p className="text-orange-500">Tiendacompleta</p>
 						</h2>
-						<p className="text-pretty text-neutral-600">{t("hero.description")}</p>
+						<p className="text-pretty text-neutral-600">
+							Explora nuestra seleccion de productos y encontra lo que estas buscando{" "}
+						</p>
 						<YnsLink
 							className="inline-flex h-10 items-center justify-center rounded-full bg-neutral-900 px-6 font-medium text-neutral-50 transition-colors hover:bg-neutral-900/90 focus:outline-none focus:ring-1 focus:ring-neutral-950"
-							href={t("hero.link")}
+							href="/products"
 						>
-							{t("hero.action")}
+							Compra ahora
 						</YnsLink>
 					</div>
 					<Image
