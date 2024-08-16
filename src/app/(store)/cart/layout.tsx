@@ -1,5 +1,4 @@
 import { type ReactNode } from "react";
-import { getTranslations } from "next-intl/server";
 import { getCartFromCookiesAction } from "@/actions/cartActions";
 
 import { CartSummaryTable } from "@/ui/checkout/CartSummaryTable";
@@ -11,7 +10,6 @@ export default async function CartLayout({ children }: { children: ReactNode }) 
 	if (!cart?.cart.client_secret || cart.lines.length === 0) {
 		return <CartEmpty />;
 	}
-	const t = await getTranslations("/cart.page");
 
 	return (
 		<StripeElementsContainer client_secret={cart.cart.client_secret}>
