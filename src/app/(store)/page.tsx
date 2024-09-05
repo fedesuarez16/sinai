@@ -4,8 +4,8 @@ import Link from "next/link";
 import { ProductList } from "@/ui/products/productList";
 import { CategoryBox } from "@/ui/CategoryBox";
 import Mesa from "@/images/mesa.png";
-import Sillon from "@/images/sillon.jpg";
-import Respaldos from "@/images/respaldos.jpg";
+import Sillon from "@/images/sillones.png";
+import Respaldos from "@/images/respaldos.png";
 import { publicUrl } from "@/env.mjs";
 
 export const metadata = {
@@ -54,9 +54,9 @@ export default async function Home() {
 			<section className="w-full py-8">
 				<div className="grid gap-8 lg:grid-cols-3">
 					{[
-						{ categorySlug: "accessories", src: Mesa },
-						{ categorySlug: "apparel", src: Sillon },
-						{ categorySlug: "apparel", src: Respaldos },
+						{ categorySlug: "sillas", src: Mesa },
+						{ categorySlug: "sillones", src: Sillon },
+						{ categorySlug: "respaldos", src: Respaldos },
 					].map(({ categorySlug, src }) => (
 						<CategoryBox key={categorySlug} categorySlug={categorySlug} src={src} />
 					))}
