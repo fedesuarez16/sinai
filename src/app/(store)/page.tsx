@@ -3,8 +3,9 @@ import * as Commerce from "commerce-kit";
 import Link from "next/link";
 import { ProductList } from "@/ui/products/productList";
 import { CategoryBox } from "@/ui/CategoryBox";
-import AccessoriesImage from "@/images/accessories.png";
-import ApparelImage from "@/images/electrodomesticos.png";
+import Mesa from "@/images/mesa.png";
+import Sillon from "@/images/sillon.jpg";
+import Respaldos from "@/images/respaldos.jpg";
 import { publicUrl } from "@/env.mjs";
 
 export const metadata = {
@@ -51,10 +52,11 @@ export default async function Home() {
 			<ProductList products={products} />
 
 			<section className="w-full py-8">
-				<div className="grid gap-8 lg:grid-cols-2">
+				<div className="grid gap-8 lg:grid-cols-3">
 					{[
-						{ categorySlug: "accessories", src: AccessoriesImage },
-						{ categorySlug: "apparel", src: ApparelImage },
+						{ categorySlug: "accessories", src: Mesa },
+						{ categorySlug: "apparel", src: Sillon },
+						{ categorySlug: "apparel", src: Respaldos },
 					].map(({ categorySlug, src }) => (
 						<CategoryBox key={categorySlug} categorySlug={categorySlug} src={src} />
 					))}
