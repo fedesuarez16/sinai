@@ -1,12 +1,10 @@
-import Image from "next/image";
 import type { Metadata } from "next/types";
 import * as Commerce from "commerce-kit";
-import ImageOne from "./pngwing.com (3).png";
+import Link from "next/link";
 import { ProductList } from "@/ui/products/productList";
 import { CategoryBox } from "@/ui/CategoryBox";
 import AccessoriesImage from "@/images/accessories.png";
 import ApparelImage from "@/images/electrodomesticos.png";
-import { YnsLink } from "@/ui/YnsLink";
 import { publicUrl } from "@/env.mjs";
 
 export const metadata = {
@@ -18,45 +16,45 @@ export default async function Home() {
 
 	return (
 		<main>
-			<section className="rounded bg-neutral-100 py-8 sm:py-12">
-				<div className="mx-auto grid grid-cols-1 items-center justify-items-center gap-8 px-8 sm:px-16 md:grid-cols-2">
-					<div className="max-w-md space-y-4">
-						<h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
-							Descubri la coleccion de productos de{" "}
-							<p className="text-orange-500">Tiendacompleta</p>
-						</h2>
-						<p className="text-pretty text-neutral-600">
-							Explora nuestra seleccion de productos y encontra lo que estas buscando{" "}
+			<section className="relative w-full rounded-lg">
+				<video
+					src="/banner.mp4" // Reemplaza con la ruta de tu video
+					width="1200"
+					height="100"
+					autoPlay
+					loop
+					muted
+					playsInline
+					className="h-[400px] w-full rounded-lg object-cover object-center"
+					style={{ aspectRatio: "1200/600", objectFit: "cover" }}
+				/>
+				<div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-[rgba(0,0,0,0.9)] to-[rgba(0,0,0,0.3)] px-4 md:px-6">
+					<div className="max-w-2xl space-y-4 text-center">
+						<h1 className="text-3xl font-bold text-white sm:text-5xl md:text-5xl">
+							Descubri nuestra coleccion de muebles Premium
+						</h1>
+						<p className="text-lg text-white md:text-xl">
+							Discover our collection of expertly crafted furniture designed to bring comfort and
+							style to your home.
 						</p>
-						<YnsLink
-							className="inline-flex h-10 items-center justify-center rounded-full bg-neutral-900 px-6 font-medium text-neutral-50 transition-colors hover:bg-neutral-900/90 focus:outline-none focus:ring-1 focus:ring-neutral-950"
-							href="/products"
+						<Link
+							href="#"
+							className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+							prefetch={false}
 						>
-							Compra ahora
-						</YnsLink>
+							Ver productos
+						</Link>
 					</div>
-					<Image
-						alt="Cup of coffee"
-						loading="eager"
-						priority={true}
-						className="rounded"
-						height={450}
-						width={450}
-						src={ImageOne}
-						style={{
-							objectFit: "cover",
-						}}
-						sizes="(max-width: 640px) 70vw, 450px"
-					/>
 				</div>
 			</section>
+
 			<ProductList products={products} />
 
 			<section className="w-full py-8">
 				<div className="grid gap-8 lg:grid-cols-2">
 					{[
-						{ categorySlug: "accesorios", src: AccessoriesImage },
-						{ categorySlug: "electrodomesticos", src: ApparelImage },
+						{ categorySlug: "accessories", src: AccessoriesImage },
+						{ categorySlug: "apparel", src: ApparelImage },
 					].map(({ categorySlug, src }) => (
 						<CategoryBox key={categorySlug} categorySlug={categorySlug} src={src} />
 					))}

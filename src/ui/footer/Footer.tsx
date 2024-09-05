@@ -1,6 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { Categories } from "@/ui/nav/Nav";
-import { deslugify } from "@/lib/utils";
 import { YnsLink } from "@/ui/YnsLink";
 import { Newsletter } from "@/ui/footer/Newsletter.client";
 
@@ -35,18 +33,7 @@ export async function Footer() {
 				<nav className="grid grid-cols-2 gap-16">
 					<section>
 						<h3 className="mb-2 font-semibold">{t("categoriesTitle")}</h3>
-						<ul role="list" className="grid gap-1">
-							{Categories.map((category) => (
-								<li key={category.slug}>
-									<YnsLink
-										className="underline-offset-4 hover:underline"
-										href={`/category/${category.slug}`}
-									>
-										{deslugify(category.slug)}
-									</YnsLink>
-								</li>
-							))}
-						</ul>
+						<ul role="list" className="grid gap-1"></ul>
 					</section>
 					<section>
 						<h3 className="mb-2 font-semibold">Support</h3>
