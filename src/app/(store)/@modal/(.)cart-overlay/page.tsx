@@ -11,7 +11,6 @@ import { YnsLink } from "@/ui/YnsLink";
 
 export default async function CartModalPage({ searchParams }: { searchParams: { add?: string } }) {
 	const originalCart = await getCartFromCookiesAction();
-	// TODO fix type
 	const cart = await Commerce.cartAddOptimistic({ add: searchParams.add, cart: originalCart! });
 
 	if (!cart || cart.lines.length === 0) {
@@ -22,6 +21,30 @@ export default async function CartModalPage({ searchParams }: { searchParams: { 
 	const total = calculateCartTotalNetWithoutShipping(cart);
 	const t = await getTranslations("/cart.modal");
 	const locale = await getLocale();
+
+	// Construir el mensaje de WhatsApp
+	const productsMessage = cart.lines
+		.map((line) => {
+			const productName = formatProductName(line.product.name, line.product.metadata.variant);
+			const productPrice = formatMoney({
+				amount: line.product.default_price.unit_amount ?? 0,
+				currency: line.product.default_price.currency,
+				locale,
+			});
+			return `${productName} - ${productPrice} x ${line.quantity}`;
+		})
+		.join("\n");
+
+	const totalMessage = formatMoney({
+		amount: total,
+		currency,
+		locale,
+	});
+
+	const whatsappMessage = `Hola, me gustaría comprar los siguientes productos:\n\n${productsMessage}\n\nTotal: ${totalMessage}`;
+
+	// Codificar el mensaje para usarlo en la URL
+	const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`;
 
 	return (
 		<CartAsideContainer withAnimations={true}>
@@ -89,7 +112,9 @@ export default async function CartModalPage({ searchParams }: { searchParams: { 
 				</div>
 				<p className="mt-0.5 text-sm text-neutral-500">Continue para seguir con su compra</p>
 				<Button asChild={true} size={"lg"} className="mt-6 w-full rounded-full text-lg">
-					<YnsLink href="/cart">Ir al pago</YnsLink>
+					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+						Comprar
+					</a>
 				</Button>
 			</div>
 			{searchParams.add && <CartModalAddSideEffect productId={searchParams.add} />}

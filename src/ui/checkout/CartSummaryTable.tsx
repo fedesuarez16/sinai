@@ -123,7 +123,12 @@ export const CartSummaryTable = ({ cart }: { cart: Commerce.Cart }) => {
 									cartId={cart.cart.id}
 									quantity={line.quantity}
 									productId={line.product.id}
-									onChange={dispatchOptimisticCartAction}
+									onChange={({ productId, action }) => {
+										const line = optimisticCart.lines.find((line) => line.product.id === productId);
+										if (line && action === "INCREASE" && line.quantity > 0) {
+											dispatchOptimisticCartAction({ productId, action });
+										}
+									}}
 								/>
 							</TableCell>
 							<TableCell className="text-right">
