@@ -44,7 +44,7 @@ export default async function CartModalPage({ searchParams }: { searchParams: { 
 	const whatsappMessage = `Hola, me gustaría comprar los siguientes productos:\n\n${productsMessage}\n\nTotal: ${totalMessage}`;
 
 	// Codificar el mensaje para usarlo en la URL
-	const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`;
+	const whatsappUrl = `https://wa.me/+5491168029787?text=${encodeURIComponent(whatsappMessage)}`;
 
 	return (
 		<CartAsideContainer withAnimations={true}>
