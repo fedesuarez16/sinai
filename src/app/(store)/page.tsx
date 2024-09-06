@@ -62,7 +62,7 @@ export default async function Home() {
 			<section className="w-full py-8">
 				<div className="grid gap-8 lg:grid-cols-3">
 					{[
-						{ categorySlug: "sillas y mesas", src: Mesa },
+						{ categorySlug: "sillas", src: Mesa },
 						{ categorySlug: "sillones", src: Sillon },
 						{ categorySlug: "respaldos", src: Respaldos },
 					].map(({ categorySlug, src }) => (
