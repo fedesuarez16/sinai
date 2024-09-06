@@ -1,12 +1,15 @@
 import type { Metadata } from "next/types";
 import * as Commerce from "commerce-kit";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "./logo.png";
 import { ProductList } from "@/ui/products/productList";
 import { CategoryBox } from "@/ui/CategoryBox";
 import Mesa from "@/images/mesa.png";
 import Sillon from "@/images/sillones.png";
 import Respaldos from "@/images/respaldos.png";
 import { publicUrl } from "@/env.mjs";
+import Envios from "@/app/(store)/Envios";
 
 export const metadata = {
 	alternates: { canonical: publicUrl },
@@ -19,7 +22,7 @@ export default async function Home() {
 		<main>
 			<section className="relative w-full rounded-lg">
 				<video
-					src="/banner.mp4" // Reemplaza con la ruta de tu video
+					src="/banner.mp4"
 					width="1200"
 					height="100"
 					autoPlay
@@ -31,16 +34,19 @@ export default async function Home() {
 				/>
 				<div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-[rgba(0,0,0,0.9)] to-[rgba(0,0,0,0.3)] px-4 md:px-6">
 					<div className="max-w-2xl space-y-4 text-center">
-						<h1 className="text-3xl font-bold text-white sm:text-5xl md:text-5xl">
-							Descubri nuestra coleccion de muebles Premium
-						</h1>
-						<p className="text-lg text-white md:text-xl">
-							Discover our collection of expertly crafted furniture designed to bring comfort and
-							style to your home.
+						<Image
+							alt="idk"
+							src={Logo}
+							width={250}
+							height={160}
+							className="mx-auto object-contain text-xl font-bold"
+						/>
+						<p className="px-4 text-lg tracking-tighter text-gray-300 md:text-xl">
+							Descubri nuestra amplia coleccion de muebles diseñados para brindarte estilo y comfort
 						</p>
 						<Link
 							href="#"
-							className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+							className="my-4 inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
 							prefetch={false}
 						>
 							Ver productos
@@ -48,6 +54,8 @@ export default async function Home() {
 					</div>
 				</div>
 			</section>
+
+			<Envios />
 
 			<ProductList products={products} />
 
