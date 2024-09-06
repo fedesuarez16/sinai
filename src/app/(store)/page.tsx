@@ -33,7 +33,7 @@ export default async function Home() {
 					style={{ aspectRatio: "1200/600", objectFit: "cover" }}
 				/>
 				<div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-[rgba(0,0,0,0.9)] to-[rgba(0,0,0,0.3)] px-4 md:px-6">
-					<div className="max-w-2xl space-y-4 text-center">
+					<div className="space max-w-2xl text-center">
 						<Image
 							alt="idk"
 							src={Logo}
@@ -42,10 +42,10 @@ export default async function Home() {
 							className="mx-auto object-contain text-xl font-bold"
 						/>
 						<p className="px-4 text-lg tracking-tighter text-gray-300 md:text-xl">
-							Descubri nuestra amplia coleccion de muebles diseñados para brindarte estilo y comfort
+							Aprovecha un 30% de descuento con transferencia en todos nuestros productos.
 						</p>
 						<Link
-							href="#"
+							href="/products"
 							className="my-4 inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
 							prefetch={false}
 						>

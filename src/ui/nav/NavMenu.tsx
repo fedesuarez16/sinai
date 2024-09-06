@@ -45,12 +45,9 @@ export function NavMenu() {
 							<ListItem href="/products" title="Todo">
 								Todos los productos listados
 							</ListItem>
-							<ListItem href="/category/apparel" title="Electrodomesticos">
-								Electrodomesticos para el hogar y para uso cotidiano
-							</ListItem>
-							<ListItem href="/category/accessories" title="Accessorios">
-								Accesorios de todo tipo
-							</ListItem>
+							<ListItem href="/category/sillas" title="sillas"></ListItem>
+							<ListItem href="/category/sillones" title="sillones"></ListItem>
+							<ListItem href="/category/respaldos" title="Respaldos"></ListItem>
 						</ul>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
