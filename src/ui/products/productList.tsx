@@ -31,10 +31,10 @@ export const ProductList = async ({ products }: { products: Commerce.MappedProdu
 										</div>
 									)}
 									<div className="p-4">
-										<h2 className="text-lg font-semibold text-neutral-600">{product.name}</h2>
-										<footer className="text-sm font-medium text-neutral-900">
+										<h2 className="text-md font-semibold text-neutral-600">{product.name}</h2>
+										<footer className="font-regular text-sm text-neutral-900">
 											{product.default_price.unit_amount && (
-												<p>
+												<p className="">
 													{formatMoney({
 														amount: product.default_price.unit_amount,
 														currency: product.default_price.currency,
@@ -42,6 +42,7 @@ export const ProductList = async ({ products }: { products: Commerce.MappedProdu
 													})}
 												</p>
 											)}
+											<p className="mt-2 text-green-700">30% de descuento con transferencia</p>
 										</footer>
 									</div>
 								</article>
