@@ -7,7 +7,6 @@ import { CartModalAddSideEffect } from "./CartSideEffect";
 import { getCartFromCookiesAction } from "@/actions/cartActions";
 import { Button } from "@/ui/shadcn/button";
 import { formatMoney, formatProductName } from "@/lib/utils";
-import { YnsLink } from "@/ui/YnsLink";
 
 export default async function CartModalPage({ searchParams }: { searchParams: { add?: string } }) {
 	const originalCart = await getCartFromCookiesAction();
