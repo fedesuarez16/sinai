@@ -14,17 +14,26 @@ export const Nav = () => {
 	return (
 		<header className="border-b py-4">
 			<div className="sm:items-centerm mx-auto flex max-w-7xl flex-col items-start gap-2 px-4 sm:flex-row sm:flex-wrap sm:items-center sm:px-6 md:flex-nowrap lg:px-8">
-				<YnsLink href="/">
-					<Image
-						alt="idk"
-						src={Logo}
-						width={150}
-						height={120}
-						className="-mt-0.5 whitespace-nowrap text-xl font-bold"
-					/>
-				</YnsLink>
+				{/* En mobile, el logo aparece al lado del NavMenu */}
+				<div className="flex w-full items-center sm:w-auto">
+					<YnsLink href="/" className="mr-4 sm:mr-0">
+						<Image
+							alt="idk"
+							src={Logo}
+							width={120}
+							height={80}
+							className="whitespace-nowrap text-xl font-bold"
+						/>
+					</YnsLink>
 
-				<div className="sm:mr-auto">
+					{/* Logo al lado del NavMenu solo en mobile */}
+					<div className="ml-20 block sm:hidden">
+						<NavMenu />
+					</div>
+				</div>
+
+				{/* NavMenu solo en desktop */}
+				<div className="hidden sm:mr-auto sm:block">
 					<NavMenu />
 				</div>
 
