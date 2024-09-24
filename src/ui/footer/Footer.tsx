@@ -36,7 +36,7 @@ export async function Footer() {
 						<ul role="list" className="grid gap-1"></ul>
 					</section>
 					<section>
-						<h3 className="mb-2 font-semibold">Support</h3>
+						<h3 className="mb-2 font-semibold">Soporte</h3>
 						<ul role="list" className="grid gap-1">
 							<li>
 								<YnsLink
@@ -52,7 +52,7 @@ export async function Footer() {
 			</div>
 			<div className="container mt-8 flex max-w-7xl flex-col items-center justify-between gap-4 text-sm text-neutral-500 md:flex-row">
 				<div>
-					<p>© 2024 tiendacompleta.</p>
+					<p>© 2024 sinaimuebles.</p>
 					<p>
 						Desarrollado por{" "}
 						<a href="https://www.flipwebco.com/" className="text-indigo-400">
