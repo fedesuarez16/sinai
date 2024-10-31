@@ -42,9 +42,7 @@ export const ProductList = async ({ products }: { products: Commerce.MappedProdu
 													})}
 												</p>
 											)}
-											<p className="mt-1 text-[13px] text-green-700">
-												Precio pagando con transferencia/efectivo
-											</p>
+											<p className="mt-1 text-[13px] text-green-700">Hasta 6 cuotas sin interes</p>
 										</footer>
 									</div>
 								</article>
