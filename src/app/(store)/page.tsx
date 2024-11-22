@@ -42,7 +42,7 @@ export default async function Home() {
 							className="mx-auto object-contain text-xl font-bold"
 						/>
 						<p className="px-4 text-lg tracking-tighter text-gray-300 md:text-xl">
-							Aprovecha un 30% de descuento con transferencia en todos nuestros productos.
+							Compra facil y rapido todo lo que necesitas para tu hogar.
 						</p>
 						<Link
 							href="/products"
